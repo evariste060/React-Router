@@ -1,5 +1,30 @@
-export default function Contact(){
-    return (
-        <h1 className="text-2xl font-semibold text-blue-500 text-center">This is contact page</h1>
-    )
+import { useState } from "react";
+
+function Contact() {
+  const [search, setSearch] = useState("");
+
+  const items = ["Apple", "Banana", "Mango", "Orange", "Pineapple"];
+
+  const filteredItems = items.filter(item =>
+    item.toLowerCase().includes(search.toLowerCase())
+  );
+
+  return (
+    <div>
+      <input
+        type="text"
+        placeholder="Search..."
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
+
+      <ul>
+        {filteredItems.map((item, index) => (
+          <li key={index}>{item}</li>
+        ))}
+      </ul>
+    </div>
+  );
 }
+
+export default Contact;

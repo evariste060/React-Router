@@ -9,8 +9,13 @@ import Services from "./pages/Services"
 import Car from "./pages/Car"
 import Laptop from "./pages/Laptop"
 import Products from "./pages/Products"
+import { ThemeContext } from "./components.jsx/ThemeContext"
+import { useState } from "react"
 export default function App(){
+  const [dark, setDark] = useState(false)
+  const toggleTheme = () => setDark(!dark)
   return (
+    <ThemeContext.Provider value={{dark,toggleTheme}}>
     <div>
       <NavBar/>
       <Routes>
@@ -25,5 +30,6 @@ export default function App(){
           <Route path="*" element={<NotFound/>}/>
       </Routes>
     </div>
+    </ThemeContext.Provider>
   )
 }

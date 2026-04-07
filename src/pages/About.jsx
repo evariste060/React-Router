@@ -1,5 +1,14 @@
+import { useState,useEffect } from "react"
 export default function About(){
-    return (
-       <h1 className="text-2xl font-semibold text-blue-500 text-center">This is About page</h1>
+    const [users,setUsers] = useState([])
+    useEffect(()=>{
+        fetch("https://jsonplaceholder.typicode.com/users")
+        .then(res=>res.json())
+        .then(data=>setUsers(data))
+    },[])
+    return(
+        <ul>
+            {users.map(user=>(<li key={user.id}>{user.address.city}</li>))}
+        </ul>
     )
 }

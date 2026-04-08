@@ -1,6 +1,9 @@
 import { useState } from "react"
 import { ThemeContext } from "../components.jsx/ThemeContext"
 import { useContext } from "react"
+import DisplayData from "../DisplayData"
+import ToggleButtons from "../ToggleButtons"
+import Counter from "../Counter"
 export default function Home(){
     const [name,setName] = useState("")
     const [password,setPassword] = useState("")
@@ -28,11 +31,11 @@ export default function Home(){
 
     }
     return (
-       <div className={`${dark?"bg-gray-700":""} flex items-center border-2 border-blue-500 flex-col gap-12`}>
+       <div className={`${dark?"bg-gray-700 text-white":""} flex items-center border-2 border-blue-500 flex-col gap-12`}>
             <h1  className="text-2xl font-semibold text-blue-500 text-center">
                 This is Home Page
             </h1>
-            <form onSubmit={handleSubmit}className="flex flex-col gap-4" c >
+            <form onSubmit={handleSubmit}className="flex flex-col gap-4" >
                 <label> Name:
                     <input
                     type="text"
@@ -64,6 +67,9 @@ export default function Home(){
                 </button>
 
             </form>
+            <DisplayData/>
+            <ToggleButtons/>
+            <Counter/>
        </div>
     
     )

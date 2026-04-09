@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 
 function ToggleButtons() {
 // these are initialColors: ['gray','gray','gray','gray','gray']
- const initialColors = Array(5).fill('gray');  
- const [buttonColors, setButtonColors] = useState(initialColors);
+
+ const [buttonColors, setButtonColors] = useState(Array(5).fill('gray'));
  const handleClick  = (index) => {
-  const newColors = [...buttonColors]
+setButtonColors(prev=>{
+  const newColors = [...prev]
   newColors[index] =  newColors[index] === "blue" ? "gray" : "blue"
-  setButtonColors(newColors)
- }
+  return newColors
+ })}
  return (
    <div>
      {buttonColors.map((color, index) => (

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import CardList from "../components.jsx/ToggleCards";
 
 function Contact() {
   const [search, setSearch] = useState("");
@@ -23,6 +24,7 @@ function Contact() {
           <li key={index}>{item}</li>
         ))}
       </ul>
+      <CardList/>
     </div>
   );
 }

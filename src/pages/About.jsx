@@ -1,4 +1,5 @@
 import { useState,useEffect } from "react"
+import NameTransfer from "../components.jsx/NameTransfer"
 export default function About(){
     const [users,setUsers] = useState([])
     useEffect(()=>{
@@ -7,8 +8,11 @@ export default function About(){
         .then(data=>setUsers(data))
     },[])
     return(
-        <ul>
-            {users.map(user=>(<li key={user.id}>{user.address.city}</li>))}
-        </ul>
+        <div>
+            <ul>
+                {users.map(user=>(<li key={user.id}>{user.address.city}</li>))}
+            </ul>
+            <NameTransfer/>
+        </div>
     )
 }

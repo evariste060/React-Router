@@ -4,6 +4,7 @@ import { useContext } from "react"
 import DisplayData from "../DisplayData"
 import ToggleButtons from "../ToggleButtons"
 import Counter from "../Counter"
+import CardList from "../components.jsx/ToggleCards"
 export default function Home(){
     const [name,setName] = useState("")
     const [password,setPassword] = useState("")
